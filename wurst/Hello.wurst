@@ -1,0 +1,8 @@
+package Hello
+import ConflagrationObjects
+
+let doTest = true
+// Wurst demo package
+init
+	if doTest
+		createUnit(players[0], 'hfoo', vec2(0,0), angle(0))..addAbility(SPELL_ID)

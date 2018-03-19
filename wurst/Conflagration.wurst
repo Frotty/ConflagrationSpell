@@ -1,0 +1,30 @@
+package Conflagration
+import ConflagrationObjects
+import ClosureTimers
+import ClosureForGroups
+import RegisterEvents
+import EventHelper
+import HashMap
+
+let buffId = BUFF_OBJ.abilId
+let buffMap = new HashMap<unit, CallbackSingle>()
+init
+	registerSpellEffectEvent(SPELL_ID) ->
+		let caster = GetTriggerUnit()
+		let tpos = getSpellTargetPos()
+		flashEffect(SPELL_EFFECT_PATH, tpos)
+		doAfter(SPELL_EFFECT_DURATION) ->
+			forUnitsInRange(tpos, SPELL_RADIUS)  u ->
+				if u.hasAbility(buffId)
+					caster.damageTarget(u, BONUS_DAMAGE)
+					flashEffect(BONUS_EFFECT_PATH, tpos)
+
+				caster.damageTarget(u, BASE_DAMAGE)
+				u.addAbility(buffId)
+				if buffMap.has(u)
+					destroy buffMap.get(u)
+				let cb = doAfter(BUFF_DURATION) ->
+					if buffMap.has(u)
+						buffMap.remove(u)
+						u.removeAbility(buffId)
+				buffMap.put(caster, cb)
