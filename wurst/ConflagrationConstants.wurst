@@ -16,7 +16,7 @@ import public Assets
     "target, damaging nearby enemies and applying a buff, which will cause them to " +
     "take more damage on succeeding hits of this spell."
 
-@configurable public let BUFF_DURATION = 7.5
+@configurable public let BUFF_DURATION = 4.5
 @configurable public let BUFF_EFFECT_PATH = Abilities.incinerateBuff
 
 @configurable public let BUFF_NAME = "Conflagrated"

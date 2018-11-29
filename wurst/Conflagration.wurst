@@ -27,4 +27,4 @@ init
 					if buffMap.has(u)
 						buffMap.remove(u)
 						u.removeAbility(buffId)
-				buffMap.put(caster, cb)
+				buffMap.put(u, cb)
