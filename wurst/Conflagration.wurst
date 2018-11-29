@@ -11,7 +11,7 @@ init
 	EventListener.onPointCast(SPELL_ID) (caster, tpos) ->
 		flashEffect(SPELL_EFFECT_PATH, tpos)
 		doAfter(SPELL_EFFECT_DURATION) ->
-			forUnitsInRange(tpos, SPELL_RADIUS)  u ->
+			forUnitsInRange(tpos, SPELL_RADIUS) u ->
 				if u.hasAbility(buffId)
 					caster.damageTarget(u, BONUS_DAMAGE)
 					flashEffect(BONUS_EFFECT_PATH, tpos)
