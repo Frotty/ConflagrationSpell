@@ -1,5 +1,5 @@
 package Conflagration
-import ConflagrationObjects
+import public ConflagrationObjects
 import ClosureTimers
 import ClosureForGroups
 import HashMap
